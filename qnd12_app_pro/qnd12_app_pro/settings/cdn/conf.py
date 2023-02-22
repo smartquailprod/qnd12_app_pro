@@ -11,5 +11,5 @@ AWS_S3_OBJECT_PARAMETERS={
 
 AWS_LOCATION="https://qnd41-staticfiles.sfo3.digitaloceanspaces.com"
 #STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/static/'
-DEFAULT_FILE_STORAGE="qnd00_app_prod.settings.cdn.backends.MediaRootS3BotoStorage"
-STATICFILES_STORAGE="qnd00_app_prod.settings.cdn.backends.StaticRootS3BotoStorage"
+DEFAULT_FILE_STORAGE="qnd12_app_prod.settings.cdn.backends.MediaRootS3BotoStorage"
+STATICFILES_STORAGE="qnd12_app_prod.settings.cdn.backends.StaticRootS3BotoStorage"
