@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qnd12-app-pro
+spec:
+  selector:
+    matchLabels:
+      app: qnd12-app-pro
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: qnd12-app-pro
+    spec:
+      containers:
+      - name: qnd12-app-pro
+        image: smartquail/qnd12_app_pro:latest 
+        imagePullPolicy: Always
+        resources:
+            requests:
+              cpu: 250m
+              memory: 200Mi
+            limits:
+              cpu: 500m
+              memory: 500Mi
+        ports:
+        - containerPort: 8000
+        #command: ["gunicorn", "--worker-tmp-dir", "/dev/shm", "qnode01_app.wsgi:application", "--bind", "0.0.0.0:8000"]
+        envFrom:
+          - secretRef:
+              name: qnd12-app-pro-env
+          - configMapRef:
+                name: qnd12-app-config
+        env:
+          - name: PORT
+            value: "8000"       
+      imagePullSecrets:
+        - name: minikube
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qnd12-pro-service
+  labels:
+    app: qnd12-app-pro
+spec:
+  type: ClusterIP
+  selector:
+    app: qnd12-app-pro
+  ports:
+  - port: 80
+    targetPort: 8000
+    protocol: TCP

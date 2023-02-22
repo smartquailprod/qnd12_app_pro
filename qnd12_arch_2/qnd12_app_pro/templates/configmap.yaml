@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qnd12-app-config
+data:
+  POSTGRES_DB: QND12PRODDB
+  POSTGRES_HOST: smartquaildb
+  db_url: smartquaildb.postgres.svc.cluster.local
