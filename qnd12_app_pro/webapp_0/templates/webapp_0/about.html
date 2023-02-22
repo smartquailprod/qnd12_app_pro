@@ -1,0 +1,288 @@
+{% extends "webapp_0/base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+
+{% block content %}
+{% include 'webapp_0/header_about.html' %}
+            <!-- wrapper  -->	
+            <div id="wrapper">
+                <!-- content -->	
+                <div class="content">
+                    <!-- column-image  -->	
+                    <div class="column-image">
+                        {% for item in page.galleria_7.all %}
+                        {% image item.image scale-100 as A1 %}
+                        <div class="bg"  data-bg="{{A1.url}}"></div>
+                        {% endfor %}
+                        <div class="overlay"></div>
+                        <div class="column-title">
+                            <h2>About Me</h2>
+                        </div>
+                        <div class="column-notifer">
+                            <div class="scroll-down-wrap transparent_sdw">
+                                <div class="mousey">
+                                    <div class="scroller"></div>
+                                </div>
+                                <span>Scroll down  to Discover</span>
+                            </div>
+                        </div>
+                        <div class="fixed-column-dec"></div>
+                    </div>
+                    <!-- column-image end  -->	
+                    <!-- column-wrapper -->	
+                    <div class="column-wrapper">
+                        <div class="scroll-nav-wrap">
+                            <nav class="scroll-nav scroll-init">
+                                <ul>
+                                    <li><a class="act-scrlink" href="#sec1">About</a></li>
+                                    <li><a href="#sec2">Skills</a></li>
+                                    <li><a href="#sec3">Services</a></li>
+                                    <li><a href="#sec4">Clients</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--section  -->	
+                        <section id="sec1">
+                            <div class="container small-container">
+                                <div class="section-title fl-wrap">
+                                    <h3>My professional career</h3>
+                                    <h4>{{About_info}}</h4>
+                                    <div class="section-number">01.</div>
+                                </div>
+                                <div class="column-wrapper_item fl-wrap">
+                                    <div class="column-wrapper_text fl-wrap">
+                                        <p>{{About_info2}}</p>
+                                        <div class="inline-facts-holder fl-wrap">
+                                            <!-- inline-facts -->
+                                            <div class="inline-facts">
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        <div class="num" data-content="461" data-num="{{page.finish_projects}}">{{page.finish_projects}}</div>
+                                                    </div>
+                                                </div>
+                                                <h6>Finished projects</h6>
+                                            </div>
+                                            <!-- inline-facts end -->
+                                            <!-- inline-facts  -->
+                                            <div class="inline-facts">
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        <div class="num" data-content="461" data-num="{{page.countrys_projects }}">{{page.countrys_projects }}</div>
+                                                    </div>
+                                                </div>
+                                                <h6>Countrys</h6>
+                                            </div>
+                                            <!-- inline-facts end -->
+                                            <!-- inline-facts  -->
+                                            <div class="inline-facts">
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        <div class="num" data-content="168" data-num="{{page.agencies_projects}}">{{page.agencies_projects}}</div>
+                                                    </div>
+                                                </div>
+                                                <h6>Agencies</h6>
+                                            </div>
+                                            <!-- inline-facts end -->
+                                            <!-- inline-facts  -->
+                                            <div class="inline-facts">
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        <div class="num" data-content="222" data-num="{{page.hours_projects }}">{{page.hours_projects }}</div>
+                                                    </div>
+                                                </div>
+                                                <h6>Working hours </h6>
+                                            </div>
+                                            <!-- inline-facts end -->
+                                        </div>
+                                        <a href="{% slugurl 'advertising' %}" class="btn fl-btn">My Portfolio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->	
+                        <div class="sec-dec"></div>
+                        <!--section   -->	
+                        <section id="sec2">
+                            <div class="container small-container">
+                                <div class="section-title fl-wrap">
+                                    <h3>Skills and Attainments</h3>
+                                    <div class="section-number">02.</div>
+                                </div>
+                                <div class="column-wrapper_item fl-wrap">
+                                    <div class="column-wrapper_text fl-wrap">
+                                        <div class="skillbar-box animaper">
+                                            <!-- skill 1-->
+                                            <div class="custom-skillbar-title"><span>{{page.skilis1}}</span></div>
+                                            <div class="skill-bar-percent">{{page.pskilis1}}%</div>
+                                            <div class="skillbar-bg" data-percent="{{page.pskilis1}}%">
+                                                <div class="custom-skillbar"></div>
+                                            </div>
+                                            <!-- skill 2-->
+                                            <div class="custom-skillbar-title"><span>{{page.skilis2}}</span></div>
+                                            <div class="skill-bar-percent">{{page.pskilis2}}%</div>
+                                            <div class="skillbar-bg" data-percent="{{page.pskilis2}}%">
+                                                <div class="custom-skillbar"></div>
+                                            </div>
+                                            <!-- skill 3-->
+                                            <div class="custom-skillbar-title"><span>{{page.skilis3}}</span></div>
+                                            <div class="skill-bar-percent">{{page.pskilis3}}%</div>
+                                            <div class="skillbar-bg" data-percent="{{page.pskilis3}}%">
+                                                <div class="custom-skillbar"></div>
+                                            </div>
+                                            <!-- skill 4-->
+                                            <div class="custom-skillbar-title"><span>{{page.skilis4}}</span></div>
+                                            <div class="skill-bar-percent">{{page.pskilis4}}%</div>
+                                            <div class="skillbar-bg" data-percent="{{page.pskilis4}}%">
+                                                <div class="custom-skillbar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->								
+                        <div class="sec-dec"></div>
+                        <!--section   -->	
+                        <section id="sec3">
+                            <div class="container small-container">
+                                <div class="section-title fl-wrap">
+                                    <h3>Services and prices</h3>
+                                    <div class="section-number">03.</div>
+                                </div>
+                                <div class="column-wrapper_item fl-wrap">
+                                    <div class="column-wrapper_text fl-wrap">
+                                        <!-- serv-wrap--> 
+                                        <div class="serv-wrap fl-wrap">
+                                            <!-- serv-item --> 
+                                            {% for about in abouts %}
+                                            <div class="serv-item">
+                                                <div class="serv-media">
+                                                {% image about.image fill-250x250 as image2 %}
+                                                    <img src="{{image2.url}}" alt="">
+                                                </div>
+                                                <div class="serv-text">	
+                                                    <h4>{{about.service_title}}</h4>
+                                                    <p> {{about.service_description}}</p>
+                                                    <ul>
+                                                        <li>{{about.service_item1}}</li>
+                                                        <li>{{about.service_item2}</li>
+                                                        <li>{{about.service_item3}}</li>
+                                                    </ul>
+                                                    <div class="serv-price">Price :<span> ${{about.rage_price1}}-${{about.rage_price2}}</span></div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            <!-- serv-item end --> 
+                                            <!-- serv-item --> 
+                                            <div class="serv-item">
+                                                <div class="serv-media">
+                                                    <img src="images/services/1.jpg" alt="">
+                                                </div>
+                                                <div class="serv-text">
+                                                    <h4><a href="#">Commercial Photography</a></h4>
+                                                    <p> Sed blandit, dolor id aliquam vestibulum, nibh elit imperdiet turpis, quis molestie quam erat vel nisi.</p>
+                                                    <ul>
+                                                        <li><a href="#">Filming</a></li>
+                                                        <li><a href="#">Montage</a></li>
+                                                        <li><a href="#">Slow motion</a></li>
+                                                    </ul>
+                                                    <div class="serv-price">Price :<span> $350-$900</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- serv-item end -->                                                  
+                                        </div>
+                                        <!-- serv-wrap end --> 
+                                        <p>Praesent nec leo venenatis elit semper aliquet id ac enim. Maecenas nec mi leo. Etiam venenatis ut dui non hendrerit. Integer dictum, diam vitae blandit accumsan, dolor odio tempus arcu, vel ultrices nisi nibh vitae ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius lacinia vestibulum. Aliquam lobortis facilisis tellus, in facilisis ex vehicula ac. In malesuada quis turpis vel viverra.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->								
+                        <div class="sec-dec"></div>
+                        <!--section -->	
+                        <section id="sec4">
+                            <div class="container small-container">
+                                <div class="section-title fl-wrap">
+                                    <h3>Clients and Testimonilas</h3>
+                                    <h4>Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa</h4>
+                                    <div class="section-number">04.</div>
+                                </div>
+                                <div class="column-wrapper_item fl-wrap">
+                                    <div class="column-wrapper_text fl-wrap">
+                                        <div class="testilider fl-wrap" data-effects="slide">
+                                            <div class="swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
+                                                            <h3>Liza Mirovsky</h3>
+                                                            <p>"All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over "</p>
+                                                            <a href="#" class="teti-link" target="_blank">Via Twitter</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
+                                                            <h3>Andy Smith</h3>
+                                                            <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
+                                                            <a href="#" class="teti-link" target="_blank">Via Facebook</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
+                                                            <h3>Gary Trust</h3>
+                                                            <p>"All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over "</p>
+                                                            <a href="#" class="teti-link" target="_blank">Via Myspace</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->                                                
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
+                                                            <h3>Centa Simpson</h3>
+                                                            <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
+                                                            <a href="#" class="teti-link" target="_blank">Via Facebook</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testilider-controls">
+                                        <div class="ss-slider-btn ss-slider-prev color-bg"><i class="fal fa-angle-left"></i></div>
+                                        <div class="ss-slider-btn ss-slider-next color-bg"><i class="fal fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->	
+                        <!--footer -->			
+                        {% include 'webapp_0/footer.html' %}
+                        <!--footer end  -->	
+                    </div>
+                    <!-- column-wrapper -->	
+                </div>
+                <!--content end-->	
+                <!--share-wrapper-->
+                <div class="share-wrapper">
+                    <div class="share-container fl-wrap  isShare"></div>
+                </div>
+                <!--share-wrapper end-->
+            </div>
+            <!-- wrapper end -->
+            <!-- sidebar -->
+{% endblock %}

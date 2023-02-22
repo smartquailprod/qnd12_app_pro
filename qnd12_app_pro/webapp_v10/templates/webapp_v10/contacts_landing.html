@@ -1,0 +1,69 @@
+{% extends "webapp_v10/base_3.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+{% include 'webapp_v10/contacts_header.html' %}
+
+<div id="wrapper">
+    <!-- content -->	
+    <div class="content">
+        <!-- column-image  -->	
+        <div class="column-image">
+            {% for item in page.galleria_5.all %}
+            {% image item.image width-1200 as s1 %}
+            <div class="bg"  data-bg="{{s1.url}}"></div>
+            {% endfor %}
+            <div class="overlay"></div>
+            <div class="column-title">
+                <h2>CENTRO COMUNITARIO</h2>
+                <h2>ISLA FLOREANA</h2>
+            </div>
+           
+            <div class="fixed-column-dec"></div>
+        </div>
+        <!-- column-image end  -->	
+        <!-- column-wrapper -->	
+        <div class="column-wrapper ">
+            <!--scroll-nav-wrap -->	
+         
+            <!--scroll-nav-wrap end-->							
+            <!--section  -->							
+            <section id="sec1">
+                <div class="container small-container">
+                    <div class="section-title fl-wrap">
+                        <h3>{{ self.thank_you_text|richtext }}</h3>
+                    </div>
+                
+                </div>
+            </section>
+          
+            <!--section end  -->	
+            <!--footer -->			
+            <footer class="min-footer fl-wrap content-animvisible">
+                <div class="container small-container">
+                    <div class="footer-inner fl-wrap">
+                        <!-- policy-box-->
+                        <div class="policy-box">
+                            <span>&#169; Powered by SmartQuail, Inc </span>
+                        </div>
+                        <!-- policy-box end-->
+
+                    </div>
+                </div>
+            </footer>
+            <!--footer end  -->	
+        </div>
+        <!-- column-wrapper -->	
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "services/base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Thank you" %}
+{% endblock %}
+
+{% block content %}
+  <h1>{% trans "Thank you" %}</h1>
+  {% blocktrans with contract_id=contract.id %}
+    <p>Your order has been successfully completed. Your order number is <strong>{{ contract_id }}</strong>.</p>
+  {% endblocktrans %}
+{% endblock %}

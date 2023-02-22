@@ -1,0 +1,57 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static  %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->	
+        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style-dark.css' %}"> 
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    </head>
+
+    <body>
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+        <div id="main">
+
+
+    {% block content %}
+    {% endblock %}
+
+    
+    
+    
+
+         <!--=============== scripts  ===============-->
+         <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+         <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+         <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+         <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V4LE0D316C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V4LE0D316C');
+</script>
+    </body>
+    </html>

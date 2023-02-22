@@ -1,0 +1,148 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+{% load widget_tweaks %}
+
+<header class="main-header">
+    <!-- logo   -->
+    {%for item in page.galleria_3.all %}
+     {% image item.logo width-110 format-png as logo %}
+    <a href="{% slugurl 'home' %}" class="logo-holder"><img src="{{logo.url}}" alt=""></a>  
+    {% endfor %}
+    <!-- logo end  -->		
+    <!-- search -->				
+    <!-- search end  -->
+    <div class="sb-button"></div>
+    <div class="share-btn showshare"><i class="fal fa-megaphone"></i><span>Share</span></div>
+    <!-- mobile nav -->
+    <div class="nav-button-wrap">
+        <div class="nav-button"><span></span><span></span><span></span></div>
+    </div>
+    <!-- mobile nav end-->				
+    <!--  navigation -->
+    <div class="nav-holder main-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% slugurl 'home' %}" class="act-link">Home</a>
+                    <!--second level -->
+                </li>
+                <li>
+                    <a href="#">Portfolio </a>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="{% slugurl 'advertising' %}">Advertising</a></li>
+                        <li><a href="{% slugurl 'landscapes' %}">Landscape</a></li>
+                        <li><a href="{% slugurl 'products' %}">Product</a></li>
+                        <li><a href="{% slugurl 'documentary' %}">Documentary</a></li>
+                        <li><a href="{% slugurl 'tearsheeting' %}">Tear Sheeting</a></li>
+                    </ul>
+                    <!--second level end-->
+                </li>
+                <li>
+                    <a href="{% url 'wagtailadmin_home' %}">Customers</a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'shootingnow' %}">Shooting now</a>
+                </li>               
+            </ul>
+        </nav>
+    </div>
+    <!-- navigation  end -->               
+</header>
+
+<div class="hiiden-sidebar-wrap outsb">
+    <!-- sb-widget-wrap-->
+    <div class="sb-widget-wrap fl-wrap">
+        <h3>LEAVE YOUR COMMENTS </h3>
+        <div class="sb-widget  fl-wrap">
+            <p> Let me know, what you think about my work. I will contact to you soon.  </p>
+            <div class="column-wrapper_item fl-wrap">
+                <div class="column-wrapper_text fl-wrap">
+                    <div id="contact-form" class="fl-wrap">
+                        <div id="message"></div>
+                        <form action="{% pageurl page %}" method="POST" novalidate class="custom-form" action="php/contact.php" name="contactform" >
+                            <fieldset>
+                              
+                                    {% csrf_token %}
+                                    {% for hidden_field in form.hidden_fields %}
+                                      {{ hidden_field }}
+                                    {% endfor %}
+                                  
+                                    {% if form.non_field_errors %}
+                                      <div class="alert alert-danger" role="alert">
+                                        {% for error in form.non_field_errors %}
+                                          {{ error }}
+                                        {% endfor %}
+                                      </div>
+                                    {% endif %}
+                                  
+                                    {% for field in form.visible_fields %}
+                                      <div class="form-group">
+                                        {{ field.label_tag }}
+                                  
+                                        {% if form.is_bound %}
+                                          {% if field.errors %}
+                                            {% render_field field class="form-control is-invalid" %}
+                                            {% for error in field.errors %}
+                                              <div class="invalid-feedback">
+                                                {{ error }}
+                                              </div>
+                                            {% endfor %}
+                                          {% else %}
+                                            {% render_field field class="form-control is-valid" %}
+                                          {% endif %}
+                                        {% else %}
+                                          {% render_field field class="form-control" %}
+                                        {% endif %}
+                                  
+                                        {% if field.help_text %}
+                                          <small class="form-text text-muted" placeholder="Your Email">{{ field.help_text }}</small>
+                                        {% endif %}
+                                      </div>
+                                      
+                                    {% endfor %}  
+                            </fieldset>
+                            <button type="submit" id="subscribe-button" class="subscribe-button">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <!-- sb-widget-wrap end--> 
+    <!-- sb-widget-wrap-->
+    <div class="sb-widget-wrap fl-wrap">
+        <h3>We're Are Social</h3>
+        <div class="sb-widget    fl-wrap">
+            <div class="sidebar-social fl-wrap">
+                <ul>
+                    {% if settings.webapp_0.SocialMediaSettings.facebook %}
+                    <li><a href="{{ settings.webapp_0.SocialMediaSettings.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    {% endif %}
+                    {% if settings.webapp_0.SocialMediaSettings.instagram %}
+                    <li><a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    {% endif %}
+                    {% if settings.webapp_0.SocialMediaSettings.twitter %}
+                    <li><a href="{{ settings.webapp_0.SocialMediaSettings.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    {% endif %}
+                    <li><a href="https://api.whatsapp.com/send?phone=593984534954" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="mailto:info@juansilvaphoto.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <!-- sb-widget-wrap end-->                                   
+    <!-- sb-widget-wrap-->
+    <div class="sb-widget-wrap fl-wrap">
+        <div class="sb-widget  fl-wrap">
+            <a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>
+        </div>
+    </div>
+    {% include 'webapp_0/footer.html' %}
+    <!-- sb-widget-wrap end-->    
+</div>

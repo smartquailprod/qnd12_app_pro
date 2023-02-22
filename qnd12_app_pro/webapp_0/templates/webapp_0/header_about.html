@@ -1,0 +1,56 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+
+<header class="main-header">
+    <!-- logo   -->
+    {%for item in page.galleria_7.all %}
+     {% image item.logo width-110 format-png as logo %}
+    <a href="{% slugurl 'home' %}" class="logo-holder"><img src="{{logo.url}}" alt=""></a>  
+    {% endfor %}
+    <!-- logo end  -->		
+    <!-- search -->				
+    
+    <!-- search end  -->
+    <div class="share-btn showshare"><i class="fal fa-megaphone"></i><span>Share</span></div>
+    <!-- mobile nav -->
+    <div class="nav-button-wrap">
+        <div class="nav-button"><span></span><span></span><span></span></div>
+    </div>
+    <!-- mobile nav end-->				
+    <!--  navigation -->
+    <div class="nav-holder main-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% slugurl 'home' %}" class="act-link">Home</a>
+                    <!--second level -->
+                </li>
+                <li>
+                    <a href="#">Portfolio </a>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="{% slugurl 'advertising' %}">Advertising</a></li>
+                        <li><a href="{% slugurl 'landscapes' %}">Landscape</a></li>
+                        <li><a href="{% slugurl 'products' %}">Product</a></li>
+                        <li><a href="{% slugurl 'documentary' %}">Documentary</a></li>
+                        <li><a href="{% slugurl 'tearsheeting' %}">Tear Sheeting</a></li>
+                    </ul>
+                    <!--second level end-->
+                </li>
+                <li>
+                    <a href="{% url 'wagtailadmin_home' %}">Customers</a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'shootingnow' %}">Shooting now</a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'about' %}">About me</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+    <!-- navigation  end -->               
+</header>

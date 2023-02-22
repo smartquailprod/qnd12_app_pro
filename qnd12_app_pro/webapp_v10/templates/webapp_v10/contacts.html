@@ -1,0 +1,256 @@
+{% extends "webapp_v10/base_3.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/contacts_header.html' %}
+
+<div id="wrapper">
+    <!-- content -->	
+    <div class="content">
+        <!-- column-image  -->	
+        <div class="column-image">
+            {% for item in page.galleria_5.all %}
+            {% image item.logo_0 width-1200 as s1 %}
+            <div class="bg"  data-bg="{{s1.url}}"></div>
+            {% endfor %}
+            
+            <div class="column-title">
+                <div class="overlay"></div>
+            {% for item in page.galleria_5.all %}
+            {% image item.logo_1 width-1200 as l1 %}
+                <img src="{{l1.url}}">
+            {% endfor %}
+            <div class="overlay"></div>
+               
+               
+            </div>
+           
+            <div class="fixed-column-dec"></div>
+        </div>
+        <!-- column-image end  -->	
+        <!-- column-wrapper -->	
+        <div class="column-wrapper ">
+            <!--scroll-nav-wrap -->	
+            <div class="scroll-nav-wrap">
+                <nav class="scroll-nav scroll-init">
+                    <ul>
+                        <li><a class="act-scrlink" href="#sec1">{% trans "About Us" %}</a></li>
+                        <li><a href="#sec2">{% trans "Information" %}</a></li>
+                        <li><a href="#sec3">{% trans "Commments" %}</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!--scroll-nav-wrap end-->							
+            <!--section  -->	
+
+            <div class="container small-container" >
+                {% for item in page.galleria_5.all %}
+                {% image item.logo_2 width-1500 as l2 %}
+                    <img src="{{l2.url}}" width="200px">
+                {% endfor %}
+                <br>
+                <br>    
+               
+
+                {% for item in page.galleria_5.all %}
+                {% image item.logo_3 width-1200 as l3 %}
+                    <img src="{{l3.url}}" width="150px">
+                {% endfor %}
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+                {% for item in page.galleria_5.all %}
+                {% image item.logo_4 width-1200 as l4 %}
+                    <img src="{{l4.url}}" width="150px">
+                {% endfor %}
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+                {% for item in page.galleria_5.all %}
+                {% image item.logo_5 width-1200 as l5 %}
+                    <img src="{{l5.url}}" width="150px">
+                {% endfor %}
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+                {% for item in page.galleria_5.all %}
+                {% image item.logo_6 width-1200 as l6 %}
+                    <img src="{{l6.url}}" width="150px">
+                {% endfor %}
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+            </div>
+            
+            <section id="sec1">
+                <div class="container small-container">
+
+                   
+
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "About us" %}</h3>
+                    </div>
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <p>{{page.bio | richtext }}</p>
+                           
+                        </div>
+                    </div>
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "About the location" %}</h3>
+                    </div>
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <p>{{page.banner_title4 | richtext }}</p>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <div class="section-title fl-wrap">
+                                <h3>{% trans "ACCOMODATIONS" %}</h3>
+                                <li>CH Cactus</li>
+                                <li>HS Santa María</li>
+                                <li>CH Lelias’s House</li>
+                                <li>CH Emperatriz</li>
+                                <li>Black Beach House</li>
+                                <li>Lecocarpus Cabins</li>
+                                <li>El Pajas Accomodations</li>
+                                <li>CH Hildita</li>
+
+                            </div>
+                            <div class="section-title fl-wrap">
+                                <h3>{% trans "Restaurants" %}</h3>
+                                <li>The Canchalagua</li>
+                                <li>Lelia's Restaurant</li>
+                                <li>Devil's crown</li>
+                                <li>Lecocarpus</li>
+                                <li>Baroness Oasis</li>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!--section end  -->							
+            
+            <section id="sec2">
+                <div class="container small-container">
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "Contact Information" %}</h3>
+                    </div>
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <div class="contact-details fl-wrap">
+                                <ul>
+                                    <li><span>{% trans "Mail" %} :</span><a href="#" target="_blank">{{page.banner_title5 | richtext }}</a></li>
+                                    <li><span>{% trans "Address" %} :</span><a href="#" target="_blank">{{page.banner_title6 | richtext }}</a></li>
+                                    <li><span>{% trans "Phone" %} :</span><a href="#">{{ page.banner_title7| richtext }}</a></li>
+                                </ul>
+                            </div>
+                            <a href="#sec3" class="custom-scroll-link btn fl-btn">{% trans " Make your comments "%}</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--section end  -->							
+            <div class="sec-dec"></div>
+            <!--section   -->							
+            
+            <!--section -->							
+            <section id="sec3">
+                <div class="container small-container">
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "Make your comments" %}</h3>
+                    </div>
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <div id="contact-form" class="fl-wrap">
+                                <div id="message"></div>
+                                <form action="{% pageurl page %}" method="POST" novalidate class="custom-form" action="php/contact.php" name="contactform" >
+                                    <fieldset>
+                                      
+                                            {% csrf_token %}
+                                            {% for hidden_field in form.hidden_fields %}
+                                              {{ hidden_field }}
+                                            {% endfor %}
+                                          
+                                            {% if form.non_field_errors %}
+                                              <div class="alert alert-danger" role="alert">
+                                                {% for error in form.non_field_errors %}
+                                                  {{ error }}
+                                                {% endfor %}
+                                              </div>
+                                            {% endif %}
+                                          
+                                            {% for field in form.visible_fields %}
+                                              <div class="form-group">
+                                                {{ field.label_tag }}
+                                          
+                                                {% if form.is_bound %}
+                                                  {% if field.errors %}
+                                                    {% render_field field class="form-control is-invalid" %}
+                                                    {% for error in field.errors %}
+                                                      <div class="invalid-feedback">
+                                                        {{ error }}
+                                                      </div>
+                                                    {% endfor %}
+                                                  {% else %}
+                                                    {% render_field field class="form-control is-valid" %}
+                                                  {% endif %}
+                                                {% else %}
+                                                  {% render_field field class="form-control" %}
+                                                {% endif %}
+                                          
+                                                {% if field.help_text %}
+                                                  <small class="form-text text-muted" placeholder="Your Email">{{ field.help_text }}</small>
+                                                {% endif %}
+                                              </div>
+                                              
+                                            {% endfor %}  
+                                    </fieldset>
+                                    <button type="submit" id="subscribe-button" class="subscribe-button">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="to-top-btn to-top">Back to top <i class="fal fa-long-arrow-up"></i></a>
+            </section>
+            <!--section end  -->	
+            <!--footer -->			
+            <footer class="min-footer fl-wrap content-animvisible">
+                <div class="container small-container">
+                    <div class="footer-inner fl-wrap">
+                        <!-- policy-box-->
+                        <div class="policy-box">
+                            <span> 2022,Design by Edward Cooper&#169;/ Powered by <img src="{% static 'img/logo_smartquailgray.png'%}" width="130px">&#169;   </span>
+                        </div>
+                        <!-- policy-box end-->
+            
+                    </div>
+                </div>
+            </footer>
+            <!--footer end  -->	
+        </div>
+        <!-- column-wrapper -->	
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+</div>
+
+{% endblock %}

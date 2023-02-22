@@ -1,0 +1,123 @@
+
+{% extends "webapp_v10/base.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/hosts_header.html' %}
+
+<div id="wrapper">
+    <!--content -->	
+    <div class="content full-height">
+        <!--home-main_container-->	
+        <div class="home-main_container">
+            <!--follow-wrap-->
+      
+            <!--follow-wrap end-->
+            <div class="full-height fl-wrap hidden-item">
+                <!--fs-slider-wrap-->	
+                <div class="fs-slider-wrap full-height fl-wrap">
+                    <div class="fs-slider lightgallery full-height fl-wrap" data-mousecontrol2="true">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper" >
+                                <!-- swiper-slide-->
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria_3.all %}
+                                        {% image item.image width-1200 as s1 %}
+                                        <div class="bg"  data-bg="{{s1.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2><a href="#">{{page.banner_title4| richtext}}</a></h2>
+                                           <p></p>
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'claudio' %}" class="btn fl-btn">{% trans "Meet my story"%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria_3.all %}
+                                        {% image item.image_2 width-1200 as s2 %}
+                                        <div class="bg"  data-bg="{{s2.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2><a href="#">{{page.banner_title5| richtext}}</a></h2>
+                                           <p></p>
+                                           <div class="clearfix"></div>
+                                           <a href="{% slugurl 'floreana' %}" class="btn fl-btn">{% trans "Meet my story "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria_3.all %}
+                                        {% image item.image_3 width-1200 as s3 %}
+                                        <div class="bg"  data-bg="{{s3.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2><a href="#">{{page.banner_title6| richtext}}</a></h2>
+                                           <p></p>
+                                           <div class="clearfix"></div>
+                                           <a href="{% slugurl 'maximo' %}" class="btn fl-btn">{% trans "Meet my story "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria_3.all %}
+                                        {% image item.image_4 width-1200 as s4 %}
+                                        <div class="bg"  data-bg="{{s4.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2><a href="#">{{page.banner_title7| richtext}}</a></h2>
+                                           <p></p>
+                                           <div class="clearfix"></div>
+                                           <a href="{% slugurl 'lelia' %}" class="btn fl-btn">{% trans "Meet my story "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                           
+                              
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- fs-slider-wrap end-->
+                <div class="ss-slider-cont ss-slider-cont-prev hero-slider-button-prev color-bg"><i class="fal fa-long-arrow-left"></i></div>
+                <div class="ss-slider-cont ss-slider-cont-next hero-slider-button-next color-bg"><i class="fal fa-long-arrow-right"></i></div>
+               
+                <!-- home-slider-counter-wrap-->
+              
+                <!-- home-slider-counter-wrap end-->
+            </div>
+        </div>
+        <!--home-main_container end-->
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+</div>
+<!-- wrapper end -->
+<!-- sidebar -->
+
+
+<!-- sidebar end -->
+<!-- cursor-->
+
+<!-- cursor end-->     
+</div>
+
+    {% endblock %}

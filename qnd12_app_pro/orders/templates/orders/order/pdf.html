@@ -1,0 +1,114 @@
+{% load static %}
+{% load qr_code %}
+
+<html>
+  <head>
+   
+    <link href="{% static 'css/orders.css' %}" media="print" rel="stylesheet">
+    <title></title>
+    <meta name="description" content="Invoice demo sample">
+  </head>
+
+  <body>
+    <h1><img src="{% static 'img/nethousingcolorpng.png' %} " style="display:inline;" align="left"  width="50%"></h1>
+
+    <aside>
+      <address id="from">
+        PROFIX MAINTENANCE HOUSING IT ENVELOPMENT. S.A.S
+        MSc. Tatiana Carvajal R.
+        Chief Officer Technologies  
+        profixmainhousing@gmail.com
+        R.U.C: 171918383001
+      </address>
+   
+      <address id="to">
+    {{order.Business_name}}  
+    {{ order.last_name }} {{ order.first_name }} 
+    {{ order.email }}
+    {{ order.address }}
+    R.U.C/C.I: {{ order.CI }}
+      </address>
+    </aside>
+
+    <dl id="informations" style="display:inline-block;">
+    <dd>Quito-Ecuador</dd>
+    <dt>Fecha</dt>
+      <dd>{{ order.created|date:"M d, Y" }} </dd>
+      <dt>Orden N</dt>
+      <dd>{{ order.id }}</dd>
+      
+    </dl>
+<h1>Cotización proyecto: {{order.project_name}}</h1>
+<h3>{{ item.product.category }}</h3> 
+    <table>
+      <thead>
+        <tr>
+        <th>Tecnología</th>
+        <th>Servicio</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal </th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for item in order.items.all %} 
+        <tr class="row{% cycle "1" "2" %}"> 
+        <td>{{ item.product.category }}</td> 
+        <td>{{ item.product.name }}</td>
+          <td>{{ item.product.description }}</td> 
+          <td class="num">${{ item.price }}</td> 
+          <td style="text-align:center;" class="num">{{ item.quantity }}</td> 
+          <td style="text-align:center;" class="num">${{ item.get_cost }}</td>  
+        </tr> 
+         
+      {% endfor %}
+     </tbody>
+    </table>
+
+    <table id="total">
+      <thead>
+        <tr>
+          <th style="background:#f6f6f6; color:#000; text-align:left;">Valores a pagar</th>
+          <th style="background:#f6f6f6; color:#000; text-align:left;">Información de la bancaria</th>
+          <th style="background:#f6f6f6; color:#000;text-align:left; ">Estado de Cuenta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td class="num"> Total : $ {{ order.get_total_cost_s }} </td>
+          <td>Banco Internacional</td>
+          <td>Status: {% if order.paid %}Pagado{% else %}Pago Pendiente{% endif %}</td>
+        </tr> 
+        <tr>
+        <td>I.V.A (% {{order.IVA}}) : $ {{ order.iva|floatformat:2 }}</td>
+          <td>C.T.A:708011138</td>
+          <td>Deployd: {% if order.deployd %}On Cloud{% else %}Off Cloud{% endif %}</td>
+        </tr>
+         <tr> 
+         <td class="num">Total + I.V.A :$ {{ order.get_total_cost_s_iva|floatformat:2 }}</td>
+          <td>Cuenta de Ahorros</td>
+          <td>Cloud Server: {{ order.cloud_server }}</td>
+        </tr>
+        <tr> 
+          <td class="num">Plan de pagos: seis meses</td>
+          <td>profix group</td>
+          <td>IP address: {{order.ip_address_cloud}} </td>
+          
+        </tr> 
+        <tr>
+        <td>
+        </td>
+        </tr>
+        <tr> 
+          <td style = "font-size:12px;font-weight: bold; color:#b60202;;"class="num">Valor a cancelar: $ {{ order.get_total_cost|floatformat:2 }}</td>
+        </tr> 
+      </tbody>
+    
+    </table>
+   
+  </body>
+</html>
+
+   

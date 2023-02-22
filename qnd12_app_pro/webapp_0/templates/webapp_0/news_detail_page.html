@@ -1,0 +1,82 @@
+{% extends "webapp_0/base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static  %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+{% include 'webapp_0/header_shootingnow.html' %}
+
+<div id="wrapper">
+    <!--content -->	
+    <div class="content full-height">
+        <!--home-main_container-->	
+        <div class="home-main_container">
+            <!--follow-wrap-->
+            <div class="follow-wrap">
+                <div class="follow-wrap_title">
+                    <span>Follow</span> <i class="fal fa-arrow-right"></i>
+                </div>
+                <div class="clearfix"></div>
+                <ul>
+                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                </ul>
+            </div>
+            <!--follow-wrap end-->
+            <!--hero-decor-let-->   
+            <div class="hero-decor-let">
+                <div>01. <span>Wedding</span></div>
+                <div>02. <span>Commercial</span></div>
+                <div>03. <span>Branding</span></div>
+            </div>
+            <!--hero-decor-let end-->
+            <!--home-main_title-->
+            <div class="home-main_title">
+                <div class="home-main_title_item">
+                    <h4>Photographer and director based in New York</h4>
+                    <h2>Jane Kowalski</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href="portfolio.html" class="btn fl-btn">My portfolio</a>
+                </div>
+            </div>
+            <!--home-main_title end-->
+            <!--bg video-->
+            <div class="media-container media-container_fs">
+                <div class="video-mask"></div>
+                <div class="video-holder">
+                    <div class="video-container">
+                        <video autoplay  loop muted  class="bgvid">
+                            <source src="http://springbook.kwst.net/video/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!--  
+                        Vimeo code
+                        
+                         <div  class="background-vimeo" data-vim="97871257"> </div> --> 
+                    <!--  
+                        Youtube code 
+                        
+                         <div  class="background-youtube-bg" data-vid="Hg5iNVSp2z8" data-mv="1"> </div> -->
+                    <div class="mob-bg bg" data-bg="images/bg/1.jpg"></div>
+                </div>
+            </div>
+
+            <div class="overlay"></div>
+            <!--bg image end-->
+        </div>
+        <!--home-main_container end-->	
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+</div>
+          
+                {% endblock %}
+               

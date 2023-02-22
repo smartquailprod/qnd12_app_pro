@@ -1,0 +1,346 @@
+{% extends "webapp_0/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load webapp_0_tags %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_0/header.html' %}
+
+            <div id="wrapper">
+                <!--content -->	
+                <div class="content full-height">
+                    <!--home-main_container-->	
+                    <div class="home-main_container">
+                        <!--follow-wrap-->
+                        
+                        <!--follow-wrap end-->
+                        <div class="full-height fl-wrap hidden-item">
+                            <!--fs-slider-wrap-->	
+                            <div class="fs-slider-wrap full-height fl-wrap">
+                                <div class="fs-slider lightgallery full-height fl-wrap" data-mousecontrol2="true">
+                                    <div class="swiper-container">
+                                        {% for item in page.galleria.all %}
+                                        <div class="swiper-wrapper" >  
+                                            <!-- swiper-slide-->
+                                            <div class="swiper-slide hov_zoom">
+                                                <div class="fs-slider-item fl-wrap">
+                                                    {% image item.image scale-100 as s1 %}
+                                                    <div class="bg"  data-bg="{{s1.url}}"></div>
+                                                    <div class="overlay"></div>
+                                                    <a href="{{s1.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- swiper-slide-->
+                                            <!-- swiper-slide-->
+                                            <div class="swiper-slide hov_zoom">
+                                                <div class="fs-slider-item fl-wrap">
+                                                    {% image item.image_2 scale-100 as s2 %}
+                                                    <div class="bg"  data-bg="{{s2.url}}"></div>
+                                                    <div class="overlay"></div>
+                                                    <a href="{{s2.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- swiper-slide-->
+                                           <!-- swiper-slide-->
+                                           <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_3 scale-100 as s3 %}
+                                                <div class="bg"  data-bg="{{s3.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s3.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_4_2 scale-100 as s4 %}
+                                                <div class="bg"  data-bg="{{s4.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s4.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_5_2 scale-100 as s5 %}
+                                                <div class="bg"  data-bg="{{s5.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s5.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_6_2 scale-100 as s6 %}
+                                                <div class="bg"  data-bg="{{s6.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s6.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_7_2 scale-100 as s7 %}
+                                                <div class="bg"  data-bg="{{s7.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s7.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_8_2 scale-100 as s8 %}
+                                                <div class="bg"  data-bg="{{s8.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s8.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                        <!-- swiper-slide-->
+                                        <div class="swiper-slide hov_zoom">
+                                            <div class="fs-slider-item fl-wrap">
+                                                {% image item.image_9_2 scale-100 as s9 %}
+                                                <div class="bg"  data-bg="{{s9.url}}"></div>
+                                                <div class="overlay"></div>
+                                                <a href="{{s9.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- swiper-slide-->
+                                       <!-- swiper-slide-->
+                                       <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_10_2 scale-100 as s10 %}
+                                            <div class="bg"  data-bg="{{s10.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s10.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_4 scale-100 as s11 %}
+                                            <div class="bg"  data-bg="{{s11.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s11.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_5 scale-100 as s12 %}
+                                            <div class="bg"  data-bg="{{s12.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s12.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_6 scale-100 as s13 %}
+                                            <div class="bg"  data-bg="{{s13.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s13.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_7 scale-100 as s14 %}
+                                            <div class="bg"  data-bg="{{s14.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s14.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_8 scale-100 as s15 %}
+                                            <div class="bg"  data-bg="{{s15.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s15.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_9 scale-100 as s16 %}
+                                            <div class="bg"  data-bg="{{s16.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s16.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_10 scale-100 as s17 %}
+                                            <div class="bg"  data-bg="{{s17.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s17.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_11 scale-100 as s18 %}
+                                            <div class="bg"  data-bg="{{s18.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s18.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_12 scale-100 as s19 %}
+                                            <div class="bg"  data-bg="{{s19.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s19.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% image item.image_13 scale-100 as s20 %}
+                                            <div class="bg"  data-bg="{{s20.url}}"></div>
+                                            <div class="overlay"></div>
+                                            <a href="{{s20.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- swiper-slide-->
+                                    <!-- swiper-slide-->
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fs-slider-wrap end-->
+                          
+                            <!-- home-slider-counter-wrap-->
+                           
+                            <!-- home-slider-counter-wrap end-->
+                        </div>
+                    </div>
+                    <!--home-main_container end-->
+                </div>
+                <!--content end-->	
+                <!--share-wrapper-->
+                <div class="share-wrapper">
+                    <div class="share-container fl-wrap  isShare"></div>
+                </div>
+                <!--share-wrapper end-->
+            </div>
+            <!-- wrapper end -->
+            <!-- sidebar -->
+
+            <div class="sb-overlay"></div>
+            <div class="hiiden-sidebar-wrap outsb">
+                <!-- sb-widget-wrap-->
+                <div class="sb-widget-wrap fl-wrap">
+                    <h3>LEAVE YOUR COMMENTS</h3>
+                    <div class="sb-widget  fl-wrap">
+                        <p> Let me know, what you think about my work. I will contact to you soon.  </p>
+                        <div class="column-wrapper_item fl-wrap">
+                            <div class="column-wrapper_text fl-wrap">
+                                <div id="contact-form" class="fl-wrap">
+                                    <div id="message"></div>
+                                    <form action="{% pageurl page %}" method="POST" novalidate class="custom-form" action="php/contact.php" name="contactform" >
+                                        <fieldset>
+                                          
+                                                {% csrf_token %}
+                                                {% for hidden_field in form.hidden_fields %}
+                                                  {{ hidden_field }}
+                                                {% endfor %}
+                                              
+                                                {% if form.non_field_errors %}
+                                                  <div class="alert alert-danger" role="alert">
+                                                    {% for error in form.non_field_errors %}
+                                                      {{ error }}
+                                                    {% endfor %}
+                                                  </div>
+                                                {% endif %}
+                                              
+                                                {% for field in form.visible_fields %}
+                                                  <div class="form-group">
+                                                    {{ field.label_tag }}
+                                              
+                                                    {% if form.is_bound %}
+                                                      {% if field.errors %}
+                                                        {% render_field field class="form-control is-invalid" %}
+                                                        {% for error in field.errors %}
+                                                          <div class="invalid-feedback">
+                                                            {{ error }}
+                                                          </div>
+                                                        {% endfor %}
+                                                      {% else %}
+                                                        {% render_field field class="form-control is-valid" %}
+                                                      {% endif %}
+                                                    {% else %}
+                                                      {% render_field field class="form-control" %}
+                                                    {% endif %}
+                                              
+                                                    {% if field.help_text %}
+                                                      <small class="form-text text-muted" placeholder="Your Email">{{ field.help_text }}</small>
+                                                    {% endif %}
+                                                  </div>
+                                                  
+                                                {% endfor %}  
+                                        </fieldset>
+                                        <button type="submit" id="subscribe-button" class="subscribe-button">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- sb-widget-wrap end--> 
+                <!-- sb-widget-wrap-->
+                <div class="sb-widget-wrap fl-wrap">
+                    <h3>I'm a Social</h3>
+                    <div class="sb-widget    fl-wrap">
+                        <div class="sidebar-social fl-wrap">
+                            <ul>
+                                {% if settings.webapp_0.SocialMediaSettings.facebook %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                {% endif %}
+                                {% if settings.webapp_0.SocialMediaSettings.instagram %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                {% endif %}
+                                {% if settings.webapp_0.SocialMediaSettings.twitter %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                {% endif %}
+                                {% if settings.webapp_0.SocialMediaSettings.linkedin %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                {% endif %}
+                                {% if settings.webapp_0.SocialMediaSettings.behance %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.behance }}" target="_blank"><i class="fab fa-behance"></i></a></li>
+                                {% endif %}
+                                {% if settings.webapp_0.SocialMediaSettings.youtube %}
+                                <li><a href="{{ settings.webapp_0.SocialMediaSettings.youtube }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                {% endif %}
+                                <li><a href="https://api.whatsapp.com/send?phone=593984534954" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="mailto:info@juansilvaphoto.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- sb-widget-wrap end-->                                   
+                <!-- sb-widget-wrap-->
+                <div class="sb-widget-wrap fl-wrap">
+                    <div class="sb-widget  fl-wrap">
+                        <a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>
+                    </div>
+                </div>
+                {% include 'webapp_0/footer.html' %}
+                <!-- sb-widget-wrap end-->    
+            </div>
+           
+       
+        <!-- Main end -->
+   {% endblock %}

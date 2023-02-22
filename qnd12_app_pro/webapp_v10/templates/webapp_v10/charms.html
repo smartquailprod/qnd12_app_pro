@@ -1,0 +1,215 @@
+{% extends "webapp_v10/base_2.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'webapp_v10/charms_header.html' %}
+
+    <!-- header end -->
+    <!-- wrapper  -->	
+    <div id="wrapper">
+        <!-- content -->	
+        <div class="content">
+            <!--bottom-filter-wrap-->	
+          
+            <!--bottom-filter-wrap end-->	
+            <div class="ff_panel-conainer fl-wrap">
+                <!-- portfolio start -->
+                <div class="gallery-items min-pad   four-column fl-wrap lightgallery">
+                    <!-- gallery-item-->
+                    <div class="gallery-item nature">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image width-1200 as s1 %}       
+                            <img  src="{{s1.url}}"  alt="">
+                            <a href="{{s1.url}}"  data-sub-html=".thumb-info_1 " class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a> 
+                            {% endfor %}                                                        
+                            <div class="thumb-info_1">
+                                <h3>{{page.banner_title4| richtext}}</h3>
+                                <p>{{page.banner_detail4| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_2 width-1200 as s2 %}
+                            <img  src="{{s2.url}}"    alt="">            
+                            <a href="{{s2.url}}" data-sub-html=".thumb-info_22"   class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                   
+                            <div class="thumb-info_22">
+                                <h3>{{page.banner_title5| richtext}}</h3>
+                                <p>{{page.banner_detail5| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item models">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_3 width-1200 as s3 %}
+                            <img  src="{{s3.url}}" width="{{s3.width}}"   alt="">
+                            <a href="{{s3.url}}" data-sub-html=".thumb-info_3"  class="box-media-zoom    popup-image"><i class="fal fa-search"></i></a>   
+                            {% endfor %}                                 
+                            <div class="thumb-info_3">
+                                <h3>{{page.banner_title6| richtext}}</h3>
+                                <p>{{page.banner_detail6| richtext}}</p>  
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->                           
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_4 width-1200 as s4 %}
+                            <img  src="{{s4.url}}"    alt="">
+                            <a href="{{s4.url}}"  data-sub-html=".thumb-info_4"  class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                  
+                            <div class="thumb-info_4">
+                                <h3>{{page.banner_title7| richtext}}</h3>
+                                <p>{{page.banner_detail7| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item nature">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_5 width-1200 as s5 %}
+                            <img  src="{{s5.url}}"    alt="">
+                            <a href="{{s5.url}}" data-sub-html=".thumb-info_5" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a> 
+                            {% endfor %}                                   
+                            <div class="thumb-info_5">
+                                <h3>{{page.banner_title8| richtext}}</h3>
+                                <p>{{page.banner_detail8| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_6 width-1200 as s6 %}
+                            <img  src="{{s6.url}}"    alt="">
+                            <a href="{{s6.url}}" data-sub-html=".thumb-info_6" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                  
+                            <div class="thumb-info_6">
+                                <h3>{{page.banner_title9| richtext}}</h3>
+                                <p>{{page.banner_detail9| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item models">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_7 width-1200 as s7 %}
+                            <img  src="{{s7.url}}" width="{{s3.width}}"   alt="">
+                            <a href="{{s7.url}}" data-sub-html=".thumb-info_7" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>   
+                            {% endfor %}                                 
+                            <div class="thumb-info_7">
+                                <h3>{{page.banner_title10| richtext}}</h3>
+                                <p>{{page.banner_detail10| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->                           
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_8 width-1200 as s8 %}
+                            <img  src="{{s8.url}}"    alt="">
+                            <a href="{{s8.url}}" data-sub-html=".thumb-info_8"  class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                  
+                            <div class="thumb-info_8">
+                                <h3>{{page.banner_title11| richtext}}</h3>
+                                <p>{{page.banner_detail11| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item nature">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_9 width-1200 as s9 %}
+                            <img  src="{{s9.url}}"    alt="">
+                            <a href="{{s9.url}}" data-sub-html=".thumb-info_9" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a> 
+                            {% endfor %}                                   
+                            <div class="thumb-info_9">
+                                <h3>{{page.banner_title12| richtext}}</h3>
+                                <p>{{page.banner_detail12| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_10 width-1200 as s10 %}
+                            <img  src="{{s10.url}}"    alt="">
+                            <a href="{{s10.url}}" data-sub-html=".thumb-info_10" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                  
+                            <div class="thumb-info_10">
+                                <h3>{{page.banner_title13| richtext}}</h3>
+                                <p>{{page.banner_detail13| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->
+                    <!-- gallery-item-->
+                    <div class="gallery-item models">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_11 width-1200 as s11 %}
+                            <img  src="{{s11.url}}"    alt="">
+                            <a href="{{s11.url}}" data-sub-html=".thumb-info_11" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>   
+                            {% endfor %}                                 
+                            <div class="thumb-info_11">
+                                <h3>{{page.banner_title14| richtext}}</h3>
+                                <p>{{page.banner_detail14}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->                           
+                    <!-- gallery-item-->
+                    <div class="gallery-item couples">
+                        <div class="grid-item-holder hov_zoom">
+                            {% for item in page.galleria_2.all %}
+                            {% image item.image_12 width-1200 as s12 %}
+                            <img  src="{{s12.url}}"    alt="">
+                            <a href="{{s12.url}}" data-sub-html=".thumb-info_12" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>  
+                            {% endfor %}                                  
+                            <div class="thumb-info_12">
+                                <h3>{{page.banner_title15| richtext}}</h3>
+                                <p>{{page.banner_detail15| richtext}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery-item end-->                                                            							
+                </div>
+                <!-- portfolio end -->
+            </div>
+        </div>
+        <!--content end-->	
+        <!--share-wrapper-->
+        <div class="share-wrapper">
+            <div class="share-container fl-wrap  isShare"></div>
+        </div>
+        <!--share-wrapper end-->
+    </div>
+    <!-- wrapper end -->
+    <!-- sidebar -->
+</body>
+
+    {% endblock %}

@@ -1,0 +1,140 @@
+
+{% extends "webapp_v10/base_4.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/story_header.html' %}
+
+
+    <!-- header start  -->
+	
+    <div id="wrapper">
+        <!--content -->	
+        <div class="content full-height">
+            <!--home-main_container-->	
+            <div class="home-main_container">
+                <!--follow-wrap-->
+              
+                <!--follow-wrap end-->
+                <div class="full-height fl-wrap hidden-item">
+                    <!--fs-slider-wrap-->	
+                    <div class="fs-slider-wrap full-height fl-wrap">
+                        <div class="fs-slider lightgallery full-height fl-wrap" data-mousecontrol2="true">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper" >
+                                    <!-- swiper-slide-->
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% for item in page.galleria_1.all %}
+                                            {% image item.image width-1200 as s1 %}
+                                            <div class="bg"  data-bg="{{s1.url}}"></div>
+                                            
+                                            <div class="overlay"></div>
+                                            <div class="fs-slider_align_title">
+                                                <h2><a href="#">{% trans "The Island " %}</a></h2>
+                                                <p>{{page.banner_title4| richtext}} </p>
+                                                <div class="clearfix"></div>
+                                               
+                                            </div>
+                                            <a href="{{s1.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <!-- swiper-slide-->
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% for item in page.galleria_1.all %}
+                                            {% image item.image_2 width-1200 as s2 %}
+                                            <div class="bg"  data-bg="{{s2.url}}"></div>
+                                            
+                                            <div class="overlay"></div>
+                                            <div class="fs-slider_align_title">
+                                               
+                                                <p>{{page.banner_title5| richtext}} </p>
+                                                <div class="clearfix"></div>
+                                               
+                                            </div>
+                                            <a href="{{s2.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <!-- swiper-slide-->
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% for item in page.galleria_1.all %}
+                                            {% image item.image_3 width-1200 as s3 %}
+                                            <div class="bg"  data-bg="{{s3.url}}"></div>
+                                            
+                                            <div class="overlay"></div>
+                                            <div class="fs-slider_align_title">
+                                                <h2><a href="#">{% trans "Our Story" %}</a></h2>
+                                                <p>{{page.banner_title6| richtext}} </p>
+                                                <div class="clearfix"></div>
+                                               
+                                            </div>
+                                            <a href="{{s3.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide hov_zoom">
+                                        <div class="fs-slider-item fl-wrap">
+                                            {% for item in page.galleria_1.all %}
+                                            {% image item.image_4 width-1200 as s4 %}
+                                            <div class="bg"  data-bg="{{s4.url}}"></div>
+                                            
+                                            <div class="overlay"></div>
+                                            <div class="fs-slider_align_title">
+                                                <p>{{page.banner_title7| richtext}} </p>
+                                                <div class="clearfix"></div>
+                                               
+                                            </div>
+                                            <a href="{{s4.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fs-slider-wrap end-->
+                    <div class="ss-slider-cont ss-slider-cont-prev hero-slider-button-prev color-bg"><i class="fal fa-long-arrow-left"></i></div>
+                    <div class="ss-slider-cont ss-slider-cont-next hero-slider-button-next color-bg"><i class="fal fa-long-arrow-right"></i></div>
+                 
+                    <!-- home-slider-counter-wrap-->
+                  
+                    <!-- home-slider-counter-wrap end-->
+                </div>
+            </div>
+            <!--home-main_container end-->
+        </div>
+        <!--content end-->	
+        <!--share-wrapper-->
+      
+        <!--share-wrapper end-->
+    </div>
+    <!-- wrapper end -->
+    <!-- sidebar -->
+    <div class="sb-overlay"></div>
+
+    <!-- sidebar end -->
+    <!-- cursor-->
+ 
+    <!-- cursor end-->     
+</div>
+<!-- wrapper end -->
+<!-- sidebar -->
+
+
+<!-- sidebar end -->
+<!-- cursor-->
+
+<!-- cursor end-->     
+
+
+{% endblock %}

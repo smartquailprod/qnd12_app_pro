@@ -1,0 +1,129 @@
+{% extends "webapp_0/base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static  %}
+{% load widget_tweaks %}
+
+
+
+{% block content %}
+{% include 'webapp_0/header_shotingnow.html' %}
+
+            <!-- header end -->
+            <!-- wrapper  -->	
+            <div id="wrapper">
+                <!-- content -->	
+                <div class="content">
+                    <!-- column-image  -->	
+                    <div class="column-image">
+                        <div class="bg"  data-bg="images/bg/1.jpg"></div>
+                        <div class="overlay"></div>
+                        <div class="column-title">
+                            <h2>Shooting Now</h2>
+                            <h3>Im in production now.</h3>
+                        </div>
+                        <div class="column-notifer">
+                            <div class="scroll-down-wrap transparent_sdw">
+                                <div class="mousey">
+                                    <div class="scroller"></div>
+                                </div>
+                                <span>Scroll down  to Discover</span>
+                            </div>
+                        </div>
+                        <div class="fixed-column-dec"></div>
+                    </div>
+                    <!-- column-image end  -->	
+                    <!-- column-wrapper -->	
+                    <div class="column-wrapper  single-content-section">
+                        <!-- fixed-bottom-content-->	
+                        <div class="fixed-bottom-content">
+                            <!-- pagination   -->
+                            <div class="pagination-container fl-wrap">
+                                <a href="#" class="prevposts-link"><i class="fal fa-chevron-left"></i></a>
+                                <a href="#">1</a>
+                                <a href="#" class="current-page">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#" class="nextposts-link"><i class="fal fa-chevron-right"></i></a>
+                            </div>
+                            <!-- pagination  end -->
+                        </div>
+                        <!-- fixed-bottom-content end -->	
+                        <!--section  -->	
+                        <section class="single-content-section">
+                            <div class="container small-container">
+                                <!-- post -->
+
+                                <div class="post fl-wrap fw-post">
+                                    {% for post in posts %}	
+                                    <h2><span>{{ post.custom_title }}</span></h2>
+                                    <ul class="blog-title-opt">
+                                        <li>{{ post.Fecha|date:"d M,Y" }}</li>
+                                        <li> - </li>
+                                        <li><a href="{% slugurl 'about' %}">{{post.author}}</a></li>
+                                        <li>{{post.agency}}</li>
+                                    </ul>
+                                    <!-- blog media -->
+                                    <div class="blog-media fl-wrap">
+                                        {% image post.news_image fill-250x250 as new_image %}
+                                        <img src="{{ new_image.url }}" class="respimg" alt="{{ new_image.alt }}">
+                                    </div>
+                                    <!-- blog media end -->
+                                    <div class="blog-text fl-wrap">
+                                        <div class="pr-tags fl-wrap">
+                                            <span>Tags : </span>
+                                            <ul>
+                                                {% if post.tag == advertising %}
+                                                <li><a href="{% slugurl 'advertising' %}">Advertinsing</a></li>
+                                                {% else %}
+                                                <li></li>
+                                                {% endif %}
+                                                {% if post.tag == documentary %}
+                                                <li><a href="{% slugurl 'documentary' %}">Documentary</a></li>
+                                                {% else %}
+                                                <li></li>
+                                                {% endif %}
+                                                {% if post.tag == landscape %}
+                                                <li><a href="{% slugurl 'landscape' %}">Landscape</a></li>
+                                                {% else %}
+                                                <li></li>
+                                                {% endif %}
+                                                {% if post.tag == product %}
+                                                <li><a href="{% slugurl 'product' %}">Product</a></li>
+                                                {% else %}
+                                                <li></li>
+                                                {% endif %}
+                                                {% if post.tag == tearsheeting %}
+                                                <li><a href="{% slugurl 'tearsheeting' %}">Teearsheeting</a></li>
+                                                {% else %}
+                                                <li></li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            {{ post.resume }}
+                                        </p>
+                                        <a href="{{ post.url }}" class="btn float-btn flat-btn">Read more </a>
+                                    </div>
+                                   {% endfor %} 
+                                </div>
+                                <!-- post end-->
+                            </div>
+                        </section>
+                        <!--section end  -->	
+                        <!--footer -->			
+                        {% include 'webapp_0/footer.html' %}
+                        <!--footer end  -->	
+                    </div>
+                    <!-- column-wrapper -->	
+                </div>
+                <!--content end-->	
+                <!--share-wrapper-->
+                <div class="share-wrapper">
+                    <div class="share-container fl-wrap  isShare"></div>
+                </div>
+                <!--share-wrapper end-->
+            </div>
+            <!-- wrapper end -->
+{% endblock %}
+      

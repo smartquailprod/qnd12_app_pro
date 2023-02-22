@@ -1,0 +1,200 @@
+
+{% extends "webapp_v10/base.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/home_header.html' %}
+
+
+<div id="wrapper">
+    <!--content -->	
+    <div class="content full-height">
+        <!--home-main_container-->	
+        <div class="home-main_container">
+            <!--follow-wrap-->
+            <div class="follow-wrap">
+                <div class="follow-wrap_title">
+                    <span>{% trans "Contact us" %}</span> <i class="fal fa-arrow-right"></i>
+                </div>
+                <div class="clearfix"></div>
+                <ul>
+                    {% if settings.webapp_v10.SocialMediaSettings_v10.facebook %}
+                    <li><a href="{{ settings.webapp_v10.SocialMediaSettings_v10.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    {% endif %}
+                    {% if settings.webapp_v10.SocialMediaSettings_v10.instagram %}
+                    <li><a href="{{ settings.webapp_v10.SocialMediaSettings_v10.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    {% endif %}
+                    {% if settings.webapp_v10.SocialMediaSettings_v10.twitter %}
+                    <li><a href="{{ settings.webapp_v10.SocialMediaSettings_v10.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    {% endif %}
+                    <li><a href="https://api.whatsapp.com/send?phone=593993245421" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="mailto:centrocomunitariofloreana@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+       
+
+            <!--follow-wrap end-->
+            <div class="full-height fl-wrap hidden-item">
+                <!--fs-slider-wrap-->	
+                <div class="fs-slider-wrap full-height fl-wrap">
+                    <div class="fs-slider lightgallery full-height fl-wrap" data-mousecontrol2="true">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper" >
+                                <!-- swiper-slide-->
+                                <div class="swiper-slide hov_zoom">
+                                    {% for item in page.galleria.all %}
+                                        {% image item.image width-1200 as s1 %}
+                                    <div class="fs-slider-item fl-wrap">
+                                        
+                                        <div class="bg"  data-bg="{{s1.url}}"></div>
+                                       
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title4| richtext}}</h2>     
+                                                                          
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_2 width-1200 as s2 %}
+                                        <div class="bg"  data-bg="{{s2.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title5| richtext}}</h2>
+                                       
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'story' %}" class="btn fl-btn">{% trans "Products and solutions "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_3 width-1200 as s3 %}
+                                        <div class="bg"  data-bg="{{s3.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title6| richtext}}</h2>
+                                        
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'charms' %}" class="btn fl-btn">{% trans "Explore "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_4 width-1200 as s4 %}
+                                        <div class="bg"  data-bg="{{s4.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title7| richtext}}</h2>
+                                          
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'natural' %}" class="btn fl-btn">{% trans "Explore "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_5 width-1200 as s5 %}
+                                        <div class="bg"  data-bg="{{s5.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title8| richtext}}</h2>
+                                          
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'hosts' %}" class="btn fl-btn">{% trans "Explore "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_6 width-1200 as s6 %}
+                                        <div class="bg"  data-bg="{{s6.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title9| richtext}}</h2>
+                                          
+                                           <div class="clearfix"></div>
+                                            <a href="{% url 'shop:product_list' %}" class="btn fl-btn">{% trans "Explore "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide hov_zoom">
+                                    <div class="fs-slider-item fl-wrap">
+                                        {% for item in page.galleria.all %}
+                                        {% image item.image_7 width-1200 as s7 %}
+                                        <div class="bg"  data-bg="{{s7.url}}"></div>
+                                        {% endfor %}
+                                        <div class="overlay"></div>
+                                        <div class="fs-slider_align_title">
+                                            <h2>{{page.banner_title10| richtext}}</h2>
+                                           <p></p>
+                                           <div class="clearfix"></div>
+                                            <a href="{% slugurl 'contacts' %}" class="btn fl-btn">{% trans "Explore "%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- fs-slider-wrap end-->
+                <div class="ss-slider-cont ss-slider-cont-prev hero-slider-button-prev color-bg"><i class="fal fa-long-arrow-left"></i></div>
+                <div class="ss-slider-cont ss-slider-cont-next hero-slider-button-next color-bg"><i class="fal fa-long-arrow-right"></i></div>
+               
+                <!-- home-slider-counter-wrap-->
+              
+                <!-- home-slider-counter-wrap end-->
+            </div>
+            
+        </div>
+        
+        <!--home-main_container end-->
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+
+   
+    </div>
+
+    <!--share-wrapper end-->
+</div>
+<!-- wrapper end -->
+
+
+
+
+<!-- sidebar -->
+
+
+<!-- sidebar end -->
+<!-- cursor-->
+
+<!-- cursor end-->     
+</div>
+
+{% endblock %}

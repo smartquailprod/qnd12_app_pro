@@ -1,0 +1,41 @@
+name: SmartQuail Docker Build Apps QND12
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+ 
+jobs:
+  test_qnd12_app_pro:
+    uses: smartquailstage/qnd12_app_pro/.github/workflows/test-qnd12_app_pro.yaml@main
+  Docker_qnd12:
+    runs-on: ubuntu-latest
+    needs: [test_qnd12_app_pro]
+    env:
+      DJANGO_SECRET_KEY: test-key-not-good
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3 
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    - name: Build container image
+      working-directory: ./qnd1.2_pro_dock
+      run: | 
+        docker build -f Dockerfile \
+            -t smartquail/qnd12_app_pro:latest \
+            -t smartquail/qnd12_app_pro:${GITHUB_SHA::2}-${GITHUB_RUN_ID::2} \
+            .
+    - name: Push Image
+      run: | 
+        docker push smartquail/qnd12_app_pro --all-tags
+   
+
+       
+
+   

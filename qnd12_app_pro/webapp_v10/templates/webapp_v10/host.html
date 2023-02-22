@@ -1,0 +1,86 @@
+{% extends "webapp_v10/base_2.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/host_header.html' %}
+
+
+<div id="wrapper">
+    <!-- content -->	
+    <div class="content">
+        <!-- column-image  -->	
+        <div class="column-image">
+            {% for item in page.galleria_4.all %}
+            {% image item.image width-1200 as s1 %}
+            <div class="bg"  data-bg="{{s1.url}}"></div>
+            {% endfor %}
+            <div class="overlay"></div>
+            <div class="column-title">
+                <h2>{{page.banner_title4| richtext}}</h2>
+            </div>
+           
+            <div class="fixed-column-dec"></div>
+        </div>
+        <!-- column-image end  -->	
+        <!-- column-wrapper -->	
+        <div class="column-wrapper">
+            <div class="scroll-nav-wrap">
+                <nav class="scroll-nav scroll-init">
+                    <ul>
+                        <li><a class="act-scrlink" href="#sec1">{{page.banner_title4| richtext}}</a></li>
+                        <li><a href="#sec2">{{page.banner_title5| richtext}}</a></li>
+                        <li><a href="#sec3">{{page.banner_title6| richtext}}</a></li>
+                        <li><a href="#sec4">{{page.banner_title7| richtext}}</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!--section  -->	
+            <section id="sec1">
+                <div class="container small-container">
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "My Little Story" %}</h3>
+                    </div>
+                    <div class="column-wrapper_item fl-wrap">
+                        <div class="column-wrapper_text fl-wrap">
+                            <p>
+                                {{page.bio| richtext}}
+                            </p>
+                           
+                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--section end  -->	
+            
+            <!--section end  -->								
+           
+            <!--section end  -->								
+            <footer class="min-footer fl-wrap content-animvisible">
+                <div class="container small-container">
+                    <div class="footer-inner fl-wrap">
+                        <!-- policy-box-->
+                        <div class="policy-box">
+                            <span> 2022,Design by Edward Cooper&#169;/ Powered by <img src="{% static 'img/logo_smartquailgray.png'%}" width="130px">&#169;   </span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </footer>
+            <!--footer end  -->	
+        </div>
+        <!-- column-wrapper -->	
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+</div>
+
+{% endblock %}

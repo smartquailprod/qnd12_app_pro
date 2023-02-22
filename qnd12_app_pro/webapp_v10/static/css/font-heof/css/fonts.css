@@ -1,0 +1,10 @@
+
+
+
+@font-face {
+    font-family: 'hoefler_textregular';
+    src: url('../fonts/ufonts.com_hoefler-text-webfont.woff2') format('woff2'),
+         url('../fonts/ufonts.com_hoefler-text-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

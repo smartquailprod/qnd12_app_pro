@@ -1,0 +1,88 @@
+
+{% extends "webapp_v10/base_4.html" %}
+{% load i18n %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+{% include 'webapp_v10/under_header.html' %}
+
+
+    <!-- header start  -->
+	
+    <div id="wrapper">
+        <!--content -->	
+        <div class="content full-height">
+            <!--home-main_container-->	
+            <div class="home-main_container">
+                <!--follow-wrap-->
+                <div class="follow-wrap">
+                    <div class="follow-wrap_title">
+                        <span>Follow</span> <i class="fal fa-arrow-right"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                    </ul>
+                </div>
+                <!--follow-wrap end-->
+                <!--hero-decor-let-->   
+                <div class="hero-decor-let">
+                    <div>01. <span>{% trans "We are the smart Building Solutions" %}</span></div>
+                    <div>02. <span>{% trans "We want build the new inovation for the cities" %} </span></div>
+                    <div>03. <span>{% trans "We are profesiona in Automatitation" %}</span></div>
+                </div>
+                <!--hero-decor-let end-->
+                <!--home-main_title-->
+                <div class="home-main_title">
+                    <div class="home-main_title_item">
+                        <h4>{% trans "UNDER CONTRUCTION" %}</h4>
+                        <h2>{{page.banner_title4| richtext}}</h2>
+                        <p>{{page.banner_title5| richtext}} </p>
+                        
+                    </div>
+                </div>
+                <!--home-main_title end-->
+                <div class="slider-mask"></div>
+                <!--bg image-->
+                {% for item in page.galleria_under.all %}
+                {% image item.image width-1200 as s1 %}
+                <div class="bg" data-bg="{{s1.url}}"></div>
+                {% endfor %}
+                <div class="overlay"></div>
+                <!--bg image end-->
+            </div>
+            <!--home-main_container end-->	
+        </div>
+        <!--content end-->	
+        <!--share-wrapper-->
+        <div class="share-wrapper">
+            <div class="share-container fl-wrap  isShare"></div>
+        </div>
+        <!--share-wrapper end-->
+    </div>
+    <!-- wrapper end -->
+    <!-- sidebar -->
+    <div class="sb-overlay"></div>
+
+    <!-- sidebar end -->
+    <!-- cursor-->
+ 
+    <!-- cursor end-->     
+</div>
+<!-- wrapper end -->
+<!-- sidebar -->
+
+
+<!-- sidebar end -->
+<!-- cursor-->
+
+<!-- cursor end-->     
+
+
+{% endblock %}

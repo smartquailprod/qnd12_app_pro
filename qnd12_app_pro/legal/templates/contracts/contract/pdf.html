@@ -1,0 +1,145 @@
+{% load widget_tweaks %}
+{% load wagtailcore_tags %}
+{% load static %}
+{% load qr_code %}
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://use.fontawesome.com/0a23ae7e01.js"></script>
+
+<html> 
+<body> 
+<header>
+<div id="image" style="display:inline;">
+ <img src="{% static 'img/sbllogo.png' %} " align="left"  width="20%">
+ </div>
+ <div id="texts" style="display:inline; white-space:nowrap;"> 
+ <p style="text-align:right;"> 
+ <span class="primary"> 
+      {{ contract.updated|date:"M d, Y" }}, {{ contract.city }}-{{ contract.country }}   
+  </span> 
+  <br>
+    Contrato No.- {{ contract.id }}</br> 
+  </p> 
+  </div>
+
+</header>
+ 
+
+  
+ <br>
+  <h1>{{ contract.type}}</h1> 
+  <br>
+<p style="text-align: justify">
+El presente {{ contract.type}} se suscribe en el {{ contract.city }}, 
+a los {{ contract.created|date:"d " }} días del mes de {{ contract.created|date:"M" }} de {{ contract.created|date:"Y" }},
+ entre el gerente general, Santiago Mauricio Silva Domínguez,
+  por sus propios derechos y por los que representa 
+  de la compañia SMARTQUAIL S.A.S, a quien en adelante 
+  se le llamará <b>SMARTQUAIL</b>; y,  por otra parte, 
+  la {{ contract.Business_type}} <b>{{ contract.Business_name}}</b>, 
+  representada {{ contract.Law_type}} por {{ contract.Cli_title }} {{ contract.first_name }}  {{ contract.last_name }}, 
+  quien en adelante se le denominará {{ contract.Business_name}};
+   ambas partes declaran estar domiciliadas 
+   en la ciudad de distrito metropolitano de {{ contract.city }}, y ser hábiles
+    para contratar y obligarse por 
+    lo que han convenido en celebrar el 
+    presente {{ contract.type}}, sujeto a las siguientes cláusulas y condiciones: 
+</p>
+
+<br>
+
+
+
+{% for item in contract.Acuerdo_items.all %}
+<p style="text-align: justify; font-weight: bold;"> {{ item.clausura }}
+  <br>
+{{ item.intro|richtext }}<p> 
+
+{% endfor %}
+
+  <br>
+
+  <table> 
+    <thead> 
+      <tr> 
+        
+        <th></th> 
+        <th></th>
+        <th></th> 
+        <th></th> 
+       
+      </tr> 
+    </thead> 
+    <tbody> 
+       
+        <tr class=""> 
+          <td style="font-size: 8pt;"><b>{{ contract.first_name }}  {{ contract.last_name }}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> Santiago Mauricio Silva Domínguez </b><br><br><br></td> 
+          <td></td>
+          <td></td> 
+          <td></td>  
+        </tr>
+        <tr>
+        </tr>
+         <tr>
+        </tr>
+        <br>
+        <br>
+      <tr class=""> 
+          <td>{{ contract.Business_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SMARTQUAIL.S.A.S</td> 
+          <td></td>
+        </tr>
+    </tbody> 
+  </table> 
+    
+  <span class="">  
+  R.U.C: {{ contract.CI }}
+  </span> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <span class="">
+  R.U.C: 171918383001
+  </span> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<div class="signature" style="margin-left: 520px;">
+  
+<img src="{% qr_url_from_text "Contrato realizado por la Abg. Mediavilla Mercedes- CIO SMARTBUSINESSLAW by SMARTQUAIL.S.A.S" size=1 version=10 image_format='png' %}" alt="Hello World!">
+<p style="font-size: 5pt;">SMARTCONTRACT </p>
+  <p style="font-size: 5pt;">AUTH-CERTIFICATE</p>
+</div>
+
+
+  <footer>
+  <div id="image" style="display:inline;">
+  <br>
+  
+  <br>
+ <img src="{% static 'img/SQlogo.png' %} "  width="15%" align="left">
+ </div>
+ <div id="texts" style="display:inline; white-space:nowrap;"> 
+ <p style="text-align:center;"> 
+ <span class="primary"> 
+      <p style="text-align:center;"><i class="fas fa-paper-plane"></i>mail: info.smartquail@gmail.com / phone: +(593)-96-3521262</p>
+  </span> 
+  </p> 
+  <p style="text-align:right;"> 
+ <span class="secondary"> 
+      <p style="text-align:right;"></p>
+  </span> 
+  </p> 
+    
+    
+  
+  </div>
+  </footer>
+</body> 
+</html> 

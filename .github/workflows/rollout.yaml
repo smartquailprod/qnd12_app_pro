@@ -1,0 +1,28 @@
+name: SmartQuail Rollout Quails
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  rollout_qnd11_app:
+    runs-on: ubuntu-latest
+    env:
+      CLUSTER_NAME: smartquails_cluster
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DO_API_TOKEN_KEY }}
+    - name: k8s cluster kubeconfig file with /short-lived creds
+      run: |
+        dotctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{env.CLUSTER_NAME}}
+    - name: Run rollout on Deployment
+      run: | 
+        kubectl rollout restart deployment/qnode0_app-deployment
+
+       
+
+   

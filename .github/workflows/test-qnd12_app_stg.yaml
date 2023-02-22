@@ -1,0 +1,55 @@
+name: SmartQuail Django-app & Postgress Test SMARTQUAIL QND12
+
+on:
+  workflow_call:
+  workflow_dispatch:
+ 
+jobs:
+  qnd12_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./qnd12_app_pro
+    env:
+      DJANGO_SECRET_KEY: test-key-not-good
+      NAME_DB: node0db
+      PASSWORD_DB: smartquailadmindb
+      USER_DB: smartquailadmin
+      HOST_DB: smartquaildd
+      PORT_DB: 5432 
+      DB_IGNORE_SSL: "true"
+    
+    services:
+      smartquaildb:
+          image:  postgres:13-alpine
+          env: 
+            POSTGRES_DB: ${{ env.NAME_DB }}
+            POSTGRES_PASSWORD: ${{ env.PASSWORD_DB }}
+            POSTGRES_USER: ${{ env.USER_DB }}
+            POSTGRES_HOST: ${{ env.HOST_DB}}
+            POSTGRES_PORT: ${{ env.PORT_DB}}
+          ports:
+            - 5432:5432
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Tests
+      run: |
+        python manage.py test

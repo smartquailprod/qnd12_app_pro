@@ -1,0 +1,93 @@
+
+{% load i18n %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static  %}
+
+
+
+<head>
+    <!--=============== basic  ===============-->
+    <meta charset="UTF-8">
+    <title>CENTRO COMUNITARIO-ISLA FLOREANA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <!--=============== css  ===============-->	
+    <link type="text/css" rel="stylesheet" href="{% static 'css/reset_2.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_2.css' %}">
+    <!--=============== favicons ===============-->
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+
+
+<header class="main-header">
+    <!-- logo   -->
+    {% for item in page.galleria_6.all %}
+    {% image item.logo width-900 format-png as logo %}
+    <a href="{% slugurl 'home' %}" class="logo-holder"><img src="{{logo.url}}" alt="" width="{{ logo.width }}"></a>  
+    {% endfor %}
+    <!-- logo end  -->		
+    <!-- search -->				
+    
+    <!-- search end  -->
+  
+    
+   
+    <div class="share-btn showshare"><i class="fal fa-share"></i><span>{% trans "Share" %}</span></div>
+    <div class="share-btn"><a href="{% url 'shop:cart_list' %}"><i class="fal fa-shopping-cart"></i></a><span>Cart</span></div>
+    <!-- mobile nav -->
+    <div class="nav-button-wrap">
+        <div class="nav-button"><span></span><span></span><span></span></div>
+    </div>
+    <!-- mobile nav end-->                
+    <!--  navigation -->
+    <div class="nav-holder main-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% slugurl 'story' %}" class="act-link">{% trans "The Island" %} </a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'charms' %}">{% trans "Charms"%}</a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'worlds' %}">{% trans "Worlds" %}</a>
+                    <ul>
+                        <li><a href="{% slugurl 'natural' %}">{% trans "Natural Environment" %}</a></li>
+                        <li><a href="{% slugurl 'geological' %}">{% trans "Geological Environment" %}</a></li>
+                        <li><a href="{% slugurl 'marine' %}">{% trans "Marine Environment" %}</a></li>
+                        <li><a href="{% slugurl 'community' %}">{% trans "Community Environment" %}</a></li>
+                     
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% slugurl 'hosts' %}">{% trans "Hosts" %}</a>
+                </li>
+                <li>
+                    <a href="{% url 'shop:product_list' %}">{% trans "Expeditions" %}</a>
+                </li>
+                <li>
+                    <a href="{% slugurl 'contacts' %}">{% trans "Contacts" %}</a>
+                </li>
+                <li>
+                    <a href="#" class="act-link">{% trans "Languages" %} </a>
+                    <ul>
+                    <!--second level -->
+                    {% for language_code, language_name in LANGUAGES %} 
+                    {% get_language_info for language_code as lang %}  
+                    {% language language_code %}   
+                        <li> <a href="{% pageurl page.localized %}" rel="alternate" hreflang="{{ language_code }}">{{ lang.name_local }}</a></li>
+                    {% endlanguage %}
+                    {% endfor %}
+                </ul>
+                    <!--second level end-->
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- navigation  end -->               
+</header>
