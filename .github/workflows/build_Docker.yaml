@@ -10,7 +10,7 @@ on:
  
 jobs:
   test_qnd12_app_pro:
-    uses: smartquailstage/qnd12_app_pro/.github/workflows/test-qnd12_app_pro.yaml@main
+    uses: smartquailprod/qnd12_app_pro/.github/workflows/test-qnd12_app_pro.yaml@main
   Docker_qnd12:
     runs-on: ubuntu-latest
     needs: [test_qnd12_app_pro]
