@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smartquaildb
+  namespace: postgres
+  labels:
+    app: smartquaildb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smartquaildb
+  template:
+    metadata:
+      namespace: postgres
+      labels:
+        app: smartquaildb
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: smartquaildb
+          image: postgres:13-alpine
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: smartquaildb
+
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          env:
+            - name: POSTGRES_PASSWORD 
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_PASSWORD 
+                  
+
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+             
+      volumes:
+        - name: smartquaildb
+          persistentVolumeClaim:
+            claimName: smartquaildb-pv-claim

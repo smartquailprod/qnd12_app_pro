@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: smartquaildb
+  namespace: postgres
+  labels:
+    app: smartquaildb
+spec:
+  type: ClusterIP
+  selector:
+    app: smartquaildb  
+  ports:
+  - port: 5432
+    protocol: TCP

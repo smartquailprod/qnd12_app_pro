@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: postgres
+  name: pgadmin
+data:
+  PGADMIN_DEFAULT_EMAIL: smartquail.info@gmail.com

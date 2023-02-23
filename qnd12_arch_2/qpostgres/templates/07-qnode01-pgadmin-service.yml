@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin-service
+  namespace: postgres
+  labels:
+    app: pgadmin
+spec:
+ ports:
+ - protocol: TCP
+   port: 80
+   targetPort: http
+ selector:
+   app: pgadmin
+ type: NodePort

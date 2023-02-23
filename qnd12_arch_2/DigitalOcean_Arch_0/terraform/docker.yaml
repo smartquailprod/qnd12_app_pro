@@ -1,0 +1,88 @@
+#cloud-config
+
+groups:
+  - docker
+users:
+  - default
+  # the docker service account
+  - name: docker-service
+    groups: docker
+package_upgrade: true
+packages:
+  - wget
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg-agent
+  - software-properties-common
+  - docker.io
+  - kubelet
+  - kubectl
+  - [kubeadm, 1.7.10-00]
+runcmd:
+  # install docker following the guide: https://docs.docker.com/install/linux/docker-ce/ubuntu/
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get -y update
+  - sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+  - sudo systemctl enable docker
+  # install docker-compose following the guide: https://docs.docker.com/compose/install/
+  - sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - sudo chmod +x /usr/local/bin/docker-compose
+  # Install kubectl
+  - sudo snap install kubectl --classic
+  - sudo apt install virtualbox virtualbox-ext-pack
+  # Install Minikube
+ # - wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ # - sudo wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ # - chmod +x minikube-linux-amd64
+ # - sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+ #Instalamos el cluster k3s del nodo qnode0
+  - sudo curl -sfL https://get.k3s.io | sh - 
+  # Instalamos el load-balancer NGINX en el cluster
+  - k3s kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.26.1/deploy/static/mandatory.yaml 
+  - k3s kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.26.1/deploy/static/provider/cloud-generic.yaml
+ # - k3s kubectl create namespace traefik
+  - k3s kubectl create namespace qnd12
+  - k3s kubectl create namespace postgres
+  - k3s kubectl create namespace cert-manager
+  - k3s kubectl create namespace argocd
+  - mkdir -p  kube
+  - cd kube/ 
+  - git config --global user.name "smartquailpro"
+  - git config --global user.email "smartquail.pro@gmail.com"
+  - git clone https://github.com/smartquailprod/qnd12_app_pro.git
+  - cd  /kube/qnd12_app_pro/qnd12_app_pro/
+  - k3s kubectl -n qnd12 create secret generic qnd12-secret --from-env-file=.env_pro
+  #Instalamos Traefik
+  #- cd  /kube/qnd12_app_pro/qnode41_prod_arch_env/qtraefik/
+  #- k3s kubectl apply -f .
+
+  #Instalamos Ingress
+  #- cd  /kube/qnode4.1_app/qnode41_prod_arch_env/qnode41_ingress-nginx/templates/
+  #- k3s kubectl apply -f .
+  #- k3s kubectl apply -f  06-services.yaml
+  #Instalamos ARGOCD
+  - k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ # - k3s kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+ # - k3s kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+ # - k3s kubectl -n argocd patch secret argocd-initial-admin-secret  -p '{"data": {"admin.password": null, "admin.passwordMtime": null}}'
+ # - k3s kubectl -n argocd scale deployment argocd-server --replicas=0
+ # - k3s kubectl -n argocd scale deployment argocd-server --replicas=1
+  #Instalamos Postgress
+  - cd  /kube/qnd12_app_pro/qnd12_arch_2/qpostgres/templates/
+  - k3s kubectl apply -f .
+  #instalamos Qnode_41
+  #- cd /kube/qnode4.1_app/qnode41_prod_arch_env/qnode41_app/templates/
+  #- k3s kubectl -n qnode41 create secret generic qnode41-secret --from-env-file=.env_prod
+  #- k3s kubectl apply -f .
+ # Instalamos cert-manager en el cluster
+  - k3s kubectl apply --validate=false -f  https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
+# Instalamos ArgoCD
+  #- k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+  
+
+ 
+power_state:
+  mode: reboot
+  message: Restarting after installing docker & docker-compose

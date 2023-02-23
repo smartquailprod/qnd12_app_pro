@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pgadmin-app-ingress
+  namespace: postgres
+spec:
+  rules:
+  - host: pgadmin.smartquail.io
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+           service:
+             name: pgadmin-service
+             port:
+               number: 80
+              
