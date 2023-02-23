@@ -18,7 +18,7 @@ RUN git clone https://github.com/smartquailprod/${NODE_VERSION}.git
 #COPY ./qnode0_app.dev/qnode0_app_env_dev/qnode0_app/ /qnode0_app
 COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
-COPY ./uwsgi_prod.ini /${NODE_VERSION}/${NODE_APP_NAME}/uwsgi_stage.ini
+COPY ./uwsgi_prod.ini /${NODE_VERSION}/${NODE_APP_NAME}/uwsgi_prod.ini
 COPY ./baton.min.js /${NODE_VERSION}/${NODE_APP_NAME}/baton.min.js
 #COPY ./baton.min.js /${NODE_VERSION}/${NODE_APP_NAME}/${NODE_APP_NAME}/staticfiles/baton/app/baton/baton.min.js
 
