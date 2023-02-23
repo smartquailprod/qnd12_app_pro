@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: qnd12-app-config
+  namespace: qnd12-app
 data:
   POSTGRES_DB: QND12PRODDB
   POSTGRES_HOST: smartquaildb
