@@ -47,6 +47,7 @@ runcmd:
   - k3s kubectl create namespace postgres
   - k3s kubectl create namespace cert-manager
   - k3s kubectl create namespace argocd
+  - k3s kubectl create namespace ingress-nginx
   - mkdir -p  kube
   - cd kube/ 
   - git config --global user.name "smartquailpro"
@@ -54,6 +55,9 @@ runcmd:
   - git clone https://github.com/smartquailprod/qnd12_app_pro.git
   - cd  /kube/qnd12_app_pro/qnd12_app_pro/
   - k3s kubectl -n qnd12-app create secret generic qnd12-secret --from-env-file=.env_pro
+  # Instalamos la NGINX:
+  - cd /kube/qnd12_app_pro/qnd12_arch_2/qnd12_nfinx_ingress/
+  - k3s kubectl apply -f .
   #Instalamos Traefik
   #- cd  /kube/qnd12_app_pro/qnode41_prod_arch_env/qtraefik/
   #- k3s kubectl apply -f .
