@@ -10,11 +10,11 @@ metadata:
 spec:
   tls:
   - hosts: 
-    - qnd12.pro.smartquail.io
-    secretName: qnode0-tls
+    - qnd12.pro.nethousing.io
+    secretName: qnd12-tls
  # ingressClassName: nginx
   rules:
-  - host: "qnd12.pro.smartquail.io"
+  - host: "qnd12.pro.nethousing.io"
     http:
       paths:
         - pathType: Prefix

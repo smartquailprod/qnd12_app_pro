@@ -54,13 +54,16 @@ runcmd:
   - git config --global user.email "smartquail.pro@gmail.com"
   - git clone https://github.com/smartquailprod/qnd12_app_pro.git
   - cd  /kube/qnd12_app_pro/qnd12_app_pro/
-  - k3s kubectl -n qnd12-app create secret generic qnd12-secret --from-env-file=.env_pro
+  - k3s kubectl -n qnd12-app create secret generic qnd12-app-secret --from-env-file=.env_pro
   # Instalamos la NGINX:
-  - cd /kube/qnd12_app_pro/qnd12_arch_2/qnd12_nfinx_ingress/
+  - cd /kube/qnd12_app_pro/qnd12_arch_2/qnd12_nginx_ingress/
   - k3s kubectl apply -f .
-  #Instalamos Traefik
-  #- cd  /kube/qnd12_app_pro/qnode41_prod_arch_env/qtraefik/
-  #- k3s kubectl apply -f .
+  # Instalamos Postgres y la base de datos
+  - cd /kube/qnd12_app_pro/qnd12_arch_2/qpostgres/templates/
+  - k3s kubectl apply -f .
+  #Instalamos qnd12-app
+  - cd /kube/qnd12_app_pro/qnd12_arch_2/qnd12_app_pro/templates/
+  - k3s kubectl apply -f .
 
   #Instalamos Ingress
   #- cd  /kube/qnode4.1_app/qnode41_prod_arch_env/qnode41_ingress-nginx/templates/

@@ -29,7 +29,7 @@ spec:
         #command: ["gunicorn", "--worker-tmp-dir", "/dev/shm", "qnode01_app.wsgi:application", "--bind", "0.0.0.0:8000"]
         envFrom:
           - secretRef:
-              name: qnd12-app-pro-env
+              name: qnd12-app-secret
           - configMapRef:
                 name: qnd12-app-config
         env:
