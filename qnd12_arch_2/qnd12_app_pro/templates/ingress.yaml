@@ -5,8 +5,9 @@ metadata:
   namespace: qnd12-app
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
+    #kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: ingress-nginx
   rules: 
     - http:
        paths:

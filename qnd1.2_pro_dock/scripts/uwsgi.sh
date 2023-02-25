@@ -20,7 +20,7 @@ python manage.py collectstatic --settings=qnd12_app_pro.settings.pro --noinput
 #python django-admin compilemessages 
 
 
-uwsgi --http = :9000 --workers 9 --master --enable-threads --module qnd12_app_pro.wsgi  --ini uwsgi_prod.ini
+uwsgi --socket= :9000 --workers 9 --master --enable-threads --module qnd12_app_pro.wsgi  --ini uwsgi_prod.ini
 
 #python manage.py listen_port25 --noinput
 
