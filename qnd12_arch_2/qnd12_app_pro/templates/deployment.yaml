@@ -48,7 +48,7 @@ metadata:
   labels:
     app: qnd12-app-pro
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: qnd12-app-pro
   ports:
