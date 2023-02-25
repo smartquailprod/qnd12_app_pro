@@ -1,8 +1,3 @@
-#
-# Creamos el droplet
-
-
-
 
 resource "digitalocean_droplet" "QND12" {
   image     = "ubuntu-22-04-x64"
@@ -12,4 +7,5 @@ resource "digitalocean_droplet" "QND12" {
   user_data = "${file("docker.yaml")}"
   ssh_keys  = ["${digitalocean_ssh_key.qnd12.fingerprint}"]
 }
+
 
