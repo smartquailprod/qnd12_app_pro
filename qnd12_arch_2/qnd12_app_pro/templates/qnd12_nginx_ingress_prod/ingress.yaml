@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: qnd12-app-ingress
+  namespace: qnd12-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+spec:
+  tls:
+  - hosts: 
+    - qnd12.pro.nethousing.io
+    secretName: qnd12-tls
+ # ingressClassName: nginx
+  rules:
+  - host: "qnd12.pro.nethousing.io"
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: qnd12-pro-service
+              port:
+                number: 80

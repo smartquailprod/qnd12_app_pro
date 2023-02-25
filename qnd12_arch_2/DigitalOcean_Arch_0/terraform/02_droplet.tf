@@ -1,10 +1,6 @@
 #
 # Creamos el droplet
 
-data "digitalocean_project" "NetHousing" {
-  name        = "NetHousing"
-}
-
 
 resource "digitalocean_droplet" "QND12" {
   image     = "ubuntu-22-04-x64"
@@ -15,3 +11,10 @@ resource "digitalocean_droplet" "QND12" {
   ssh_keys  = ["${digitalocean_ssh_key.qnd12.fingerprint}"]
 }
 
+resource "digitalocean_project" "nethousing" {
+  name        = "nethousing"
+  description = "Proyecto NetHousing"
+  purpose     = "Web Application"
+  environment = "Development"
+  resources   = [digitalocean_droplet.nethousing.QND12]
+}
