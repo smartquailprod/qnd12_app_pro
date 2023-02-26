@@ -4,11 +4,11 @@ DEBUG=  "0"
 
 
 BATON = {
-    'SITE_HEADER': '<a href="#"><img src="https://qnd41-staticfiles.sfo3.digitaloceanspaces.com/static/img/m2.png" height="26px"></a>',
+    'SITE_HEADER': '<a href="#"><img src="https://qnd12-staticfiles.sfo3.digitaloceanspaces.com/static/img/m2.png" height="26px"></a>',
     'SITE_TITLE': '',
     'INDEX_TITLE': 'TODO EN ORDEN CLEAN & BUILDING CIA. LTDA.- BUSINESS ANALITYCS CONSULTING',
     'SUPPORT_HREF': '#',
-    'COPYRIGHT': '<a href="#"><img src="https://qnd41-staticfiles.sfo3.digitaloceanspaces.com/static/img/m2.png" height="18px"></a>&nbsp;&nbsp; copyright © 2022', # noqa
+    'COPYRIGHT': '<a href="#"><img src="https://qnd12-staticfiles.sfo3.digitaloceanspaces.com/static/img/m2.png" height="18px"></a>&nbsp;&nbsp; copyright © 2022', # noqa
     'POWERED_BY': '<a href="#"><img src="/static/img/logo_smartquailgray.png" height="13px"</a>',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,
@@ -20,7 +20,7 @@ BATON = {
     'MENU_TITLE': 'Todo en Orden',
     'MESSAGES_TOASTS': False,
     'GRAVATAR_DEFAULT_IMG': 'retro',
-    'LOGIN_SPLASH': 'https://qnd41-staticfiles.sfo3.digitaloceanspaces.com/static/img/login_splash.jpg',
+    'LOGIN_SPLASH': 'https://qnd12-staticfiles.sfo3.digitaloceanspaces.com/static/img/login_splash.jpg',
     'SEARCH_FIELD': {
         'label': 'Search contents...',
          'url': '/search/',
